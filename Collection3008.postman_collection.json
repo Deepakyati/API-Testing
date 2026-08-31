@@ -1,0 +1,44 @@
+{
+  "info": {
+    "_postman_id": "d9f1de66-085d-46d0-b7fd-9d277147bdc0",
+    "name": "Collection3008",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57793821",
+    "_collection_link": "https://go.postman.co/collection/57793821-d9f1de66-085d-46d0-b7fd-9d277147bdc0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "POST",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
