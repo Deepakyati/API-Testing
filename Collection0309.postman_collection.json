@@ -1,0 +1,77 @@
+{
+  "info": {
+    "_postman_id": "9978a329-0053-4318-ad06-a57ea9503545",
+    "name": "Collection0309",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57793821",
+    "_collection_link": "https://go.postman.co/collection/57793821-9978a329-0053-4318-ad06-a57ea9503545?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201 - Repository created\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"Response time is less than 2000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(2000);\n});\n\npm.test(\"Response has JSON body\", function () {\n    pm.response.to.be.json;\n});\n\nif (pm.response.code === 201) {\n    const jsonData = pm.response.json();\n\n    pm.test(\"Repository name matches\", function () {\n        pm.expect(jsonData.name).to.eql(\"Tutorialspoint\");\n    });\n\n    pm.test(\"Response contains repository ID\", function () {\n        pm.expect(jsonData.id).to.be.a(\"number\");\n    });\n\n    pm.test(\"Response contains full_name\", function () {\n        pm.expect(jsonData).to.have.property(\"full_name\");\n    });\n\n    pm.test(\"Response contains html_url\", function () {\n        pm.expect(jsonData).to.have.property(\"html_url\");\n    });\n}\n\nif (pm.response.code === 401) {\n    pm.test(\"401 - Authentication required\", function () {\n        const jsonData = pm.response.json();\n        pm.expect(jsonData.message).to.include(\"authentication\");\n    });\n}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\t\"name\" : \"Tutorialspoint\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.github.com/user/repos",
+          "protocol": "https",
+          "host": [
+            "api",
+            "github",
+            "com"
+          ],
+          "path": [
+            "user",
+            "repos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
