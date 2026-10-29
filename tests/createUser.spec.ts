@@ -10,6 +10,7 @@ test ("create user using POST API", async({request})=>{
     })
 
     const responseBody = await response.json();
+    console.log(responseBody);
 
     expect (response.status()).toBe(201);
 })
