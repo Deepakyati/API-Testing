@@ -9,7 +9,7 @@ import {test, expect} from '@playwright/test';
 //Empty validation
 //Format validation
 
-test ("create user using POST API", async({request})=>{
+test.only("create user using POST API", async({request})=>{
 
     const response = await request.post("https://jsonplaceholder.typicode.com/users", {
         data:{
@@ -21,5 +21,19 @@ test ("create user using POST API", async({request})=>{
     const responseBody = await response.json();
     console.log(responseBody);
 
+    //status code validation
     expect (response.status()).toBe(201);
+    //response body validation
+    expect(responseBody.name).toBe('Test User');
+    expect(responseBody.email).toBe('testuserdk@ex.com');
+    //ID validation
+    expect(responseBody.id).toBeDefined();
+    //Data type validation
+    expect(typeof responseBody.id).toBe('number');
+    //Field existance validation
+     expect(responseBody.name).toBeDefined();
+    expect(responseBody.email).toBeDefined();
+
+
+
 })
