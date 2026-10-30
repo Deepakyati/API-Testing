@@ -1,5 +1,14 @@
 import {test, expect, request} from '@playwright/test';
 
+//status code validation
+//response body validation
+//object validation
+//ID validation
+//Data type validation
+//Field existance validation
+//Empty validation
+//Format validation
+
 test.only("Get user API", async({request})=>{
 
     const response = await request.get('https://jsonplaceholder.typicode.com/users');
